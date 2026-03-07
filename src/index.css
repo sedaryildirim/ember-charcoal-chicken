@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", sans-serif;
+  
+  --color-matte-red: #A65454;
+  --color-ember-dark: #0A0A0A;
+  --color-ember-glow: #F97316;
+}
+
+@layer base {
+  body {
+    @apply bg-ember-dark text-white font-sans antialiased overflow-hidden;
+  }
+}
+
+.bg-matte-red {
+  background-color: var(--color-matte-red);
+}
