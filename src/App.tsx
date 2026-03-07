@@ -69,10 +69,23 @@ export default function App() {
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 flex flex-col items-center text-center max-w-2xl w-full"
+        className="relative z-10 flex flex-col items-center text-center max-w-4xl w-full"
       >
+        {/* Tagline Area */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 1 }}
+          className="mb-8"
+        >
+          <h1 className="text-sm sm:text-lg md:text-xl font-display font-black uppercase tracking-[0.6em] text-white/90 leading-tight">
+            Charcoal Flame Grilled Chicken
+          </h1>
+          <div className="h-[1px] w-12 bg-white/20 mx-auto mt-4" />
+        </motion.div>
+
         {/* Logo Area */}
-        <div className="mb-2 w-full flex justify-center">
+        <div className="mb-12 w-full flex justify-center">
           <motion.img 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,31 +99,23 @@ export default function App() {
             }}
             src="/assets/images/ember-logo-2.png" 
             alt="EMBER Logo" 
-            className="w-[75vw] h-auto brightness-0 invert cursor-pointer"
+            className="w-[75vw] max-w-2xl h-auto brightness-0 invert cursor-pointer"
             referrerPolicy="no-referrer"
           />
         </div>
 
         {/* Countdown Area */}
-        <div className="space-y-10 w-full">
-          <div className="flex flex-col items-center gap-4">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 1 }}
-              className="text-base sm:text-lg font-display font-black uppercase tracking-[0.4em] text-white/90 mb-2"
-            >
-              Charcoal Flame Grilled Chicken
-            </motion.h1>
+        <div className="space-y-12 w-full">
+          <div className="flex flex-col items-center gap-6">
             <motion.span 
               initial={{ opacity: 0, letterSpacing: "1em", y: 10 }}
-              animate={{ opacity: 0.8, letterSpacing: "0.6em", y: 0 }}
+              animate={{ opacity: 0.8, letterSpacing: "0.8em", y: 0 }}
               transition={{ delay: 0.5, duration: 1.5, ease: "easeOut" }}
               className="text-[10px] sm:text-xs font-bold uppercase text-white/60"
             >
               Coming Soon to Thonglor
             </motion.span>
-            <div className="pt-8">
+            <div className="pt-4">
               <Countdown />
             </div>
           </div>
