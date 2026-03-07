@@ -6,3 +6,10 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Asset Protection: Prevent modifications to specific file types and folders
+public/**/*.jpg
+public/**/*.png
+public/**/*.svg
+/public/assets/
+/public/images/
