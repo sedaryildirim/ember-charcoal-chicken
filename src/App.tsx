@@ -93,16 +93,26 @@ export default function App() {
 
         {/* Countdown Area */}
         <div className="space-y-10 w-full">
-          <div className="flex flex-col items-center gap-10">
+          <div className="flex flex-col items-center gap-4">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 1 }}
+              className="text-base sm:text-lg font-display font-black uppercase tracking-[0.4em] text-white/90 mb-2"
+            >
+              Charcoal Flame Grilled Chicken
+            </motion.h1>
             <motion.span 
               initial={{ opacity: 0, letterSpacing: "1em", y: 10 }}
               animate={{ opacity: 0.8, letterSpacing: "0.6em", y: 0 }}
               transition={{ delay: 0.5, duration: 1.5, ease: "easeOut" }}
-              className="text-[10px] sm:text-xs font-bold uppercase text-white"
+              className="text-[10px] sm:text-xs font-bold uppercase text-white/60"
             >
               Coming Soon to Thonglor
             </motion.span>
-            <Countdown />
+            <div className="pt-8">
+              <Countdown />
+            </div>
           </div>
 
           {/* Social Links */}
