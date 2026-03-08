@@ -1,13 +1,26 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Instagram, Facebook, X } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import Countdown from './components/Countdown';
+import { cn } from './utils/cn';
 
 export default function App() {
   const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
 
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center bg-matte-red overflow-hidden selection:bg-white selection:text-matte-red p-6 relative">
+      <Helmet>
+        <title>EMBER | Charcoal Flame Grilled Chicken - Coming Soon to Thonglor</title>
+        <meta name="description" content="EMBER is bringing premium charcoal flame grilled chicken to Thonglor. Join the countdown for our grand opening." />
+        <meta property="og:title" content="EMBER | Charcoal Flame Grilled Chicken" />
+        <meta property="og:description" content="Coming Soon to Thonglor. Experience the heat of the flame." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
       {/* Animated Background Gradient Shift */}
       <motion.div 
         animate={{ 
@@ -86,7 +99,7 @@ export default function App() {
 
         {/* Logo Area */}
         <div className="mb-12 w-full flex justify-center">
-          <motion.img 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.03 }}
@@ -97,11 +110,16 @@ export default function App() {
               ease: [0.22, 1, 0.36, 1],
               scale: { type: "spring", stiffness: 300, damping: 20 }
             }}
-            src="/assets/images/ember-logo-2.png" 
-            alt="EMBER Logo" 
-            className="w-[75vw] max-w-2xl h-auto brightness-0 invert cursor-pointer"
-            referrerPolicy="no-referrer"
-          />
+            className="cursor-pointer"
+          >
+            <LazyLoadImage 
+              src="/assets/images/ember-logo-2.png" 
+              alt="EMBER Logo" 
+              effect="blur"
+              className="w-[75vw] max-w-2xl h-auto brightness-0 invert"
+              wrapperClassName="w-full h-full"
+            />
+          </motion.div>
         </div>
 
         {/* Countdown Area */}
@@ -155,13 +173,19 @@ export default function App() {
               href="https://cdc-group-landing-page.pages.dev/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/40 hover:text-white text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-500 hover:tracking-[0.5em] inline-block"
+              className={cn(
+                "text-white/40 hover:text-white text-[10px] font-bold tracking-[0.3em] uppercase",
+                "transition-all duration-500 hover:tracking-[0.5em] inline-block"
+              )}
             >
               A part of the CDC Hospitality Group
             </a>
             <button 
               onClick={() => setIsPrivacyModalOpen(true)}
-              className="text-white/40 hover:text-white text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-500 hover:tracking-[0.5em] inline-block cursor-pointer"
+              className={cn(
+                "text-white/40 hover:text-white text-[10px] font-bold tracking-[0.3em] uppercase",
+                "transition-all duration-500 hover:tracking-[0.5em] inline-block cursor-pointer"
+              )}
             >
               Privacy Policy
             </button>
